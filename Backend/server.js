@@ -1,18 +1,11 @@
-import express from 'express'
-import db from './db.js';
+import express, { Router } from 'express'
+import router from './routes/routes.js'
 
 const app = express()
 
-app.get('/books', (req, res) => {
+app.use(express.json())
 
-  const q = 'SELECT * FROM book'
-
-  db.query(q, (err, data) => {
-    if (err) return res.json(err)
-
-    return res.json(data)
-  })
-})
+app.use('/books', router)
 
 const PORT = 5000;
 
