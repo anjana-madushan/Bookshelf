@@ -1,19 +1,17 @@
-import React from 'react';
+import React from 'react'; 
 
 const Books = ({ books }) => {
   return (
     <div>
-      {books.length > 0 && (
-        <table>
-          <tbody>
-            {books.map((book) => (
-              <tr key={book.id}>
-                <td>{book.title}</td>
-                <td>{book.author}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      {books.length > 0 ? (
+        
+            books.map((book) => (
+              <div key={book.id}>
+                <h1>{book.title}</h1>
+                <h1>{book.author}</h1>
+                <img src={book.coverPic} alt='' />
+              </div>
+            ))
       ) : (<p>There are not any books here!</p>)}
     </div>
   );

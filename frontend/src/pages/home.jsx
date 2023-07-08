@@ -11,8 +11,8 @@ const Home = () => {
       try{
         const res = await axios.get('http://localhost:5000/books')
         
-        setBooks(res)
-        console.log(books)
+        setBooks(res.data)
+        console.log(res.data)
       }catch(err){
         console.log(err)
       }
