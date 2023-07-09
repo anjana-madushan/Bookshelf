@@ -27,7 +27,7 @@ export const addBooks = (req, res) => {
       console.log(err)
       return res.status(500).json({ message: "Internal Server Error" })
     }
-    return res.status(500).json({ message: "Book is added successfully" })
+    return res.status(200).json({ message: "Book is added successfully" })
   })
 
 }
