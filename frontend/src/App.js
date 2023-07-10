@@ -3,9 +3,11 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Home from './pages/home.jsx';
 import AddBook from "./pages/addBook.jsx";
 import Update from "./pages/update.jsx";
+import './style/style.css'
 
 function App() {
   return (
+    <div className="app">
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
@@ -13,6 +15,7 @@ function App() {
         <Route path='/:id' element={<Update />} />
       </Routes>
     </BrowserRouter>
+    </div>
   );
 }
 

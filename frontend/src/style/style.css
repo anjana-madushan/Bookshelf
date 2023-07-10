@@ -1,0 +1,32 @@
+.app{
+  height: 100vh;
+  padding: 0px 100px;/* 0 px for top and bottom, 100px for left and right */
+  /* centering all the elements of the application */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* align texts */
+  text-align: center;
+}
+
+.books{
+  /* displayinh books horizontally */
+  display: flex;
+  gap:10px;
+}
+
+.book{
+  /* Book details size */
+  flex:1;
+  display:flex;
+  flex-direction: column;
+  gap:10px;
+  align-items: center;
+}
+
+img{
+  width:200px;
+  height: 300px;
+  object-fit: cover;
+  background-color: aqua;
+}
