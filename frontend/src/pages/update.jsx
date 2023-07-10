@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Form from '../components/form'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -14,6 +14,22 @@ const Update = () => {
   })
 
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    const fetchBook = async()=>{
+
+      try{
+        const res = await axios.get(`http://localhost:5000/books/${id}`)
+
+        setBook(res.data)
+        console.log(res.data)
+      }catch(err){
+        console.log(err)
+      }
+      
+    }
+    fetchBook();
+  }, [id])
 
   const handleSubmit = async(e)=>{
     e.preventDefault();

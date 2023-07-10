@@ -12,6 +12,24 @@ export const getBooks = (req, res) => {
 
 }
 
+export const getABook = (req, res) => {
+
+  const bookId = req.params.id;
+  const q = 'SELECT * FROM book WHERE id=?'
+  db.query(q, [bookId], (err, data) => {
+    if (err) {
+      console.log(err)
+      return res.status(500).json({ message: "Internal Server Error" })
+    }
+    if(data.length === 0){
+      return res.status(404).json({message:'There is not a book with that id'})
+    }
+    
+    return res.status(200).json(data[0])
+  })
+
+}
+
 
 export const addBooks = (req, res) => {
 
