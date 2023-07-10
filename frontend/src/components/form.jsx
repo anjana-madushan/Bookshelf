@@ -13,7 +13,7 @@ const Form = ({book, handleChange, handleSubmit}) => {
       <br/>
       <input type='text' value={book.coverPic} placeholder='Enter the link of pic' name='coverPic' onChange={handleChange} required/>
       <br/>
-      <button onClick={handleSubmit}>Add this Book</button>
+      <button onClick={handleSubmit}>Submit</button>
       </form>
     </div>
   )

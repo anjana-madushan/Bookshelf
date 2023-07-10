@@ -44,3 +44,21 @@ export const deleteBook = (req, res) =>{
     return res.status(200).json({ message:'Book is deleted successfully'})
   })
 }
+
+
+export const updateBook = (req, res) =>{
+  const bookId = req.params.id;
+
+  //sql query for upadate a book
+  const q = "UPDATE book SET `title` = ?, `description` = ?, `coverPic` = ? WHERE id = ?";
+
+  const { title, description, coverPic } = req.body;
+
+  const values = [title, description, coverPic]
+
+  db.query(q, [...values, bookId], (err, data)=>{
+    if(err) return res.json(err);
+
+    return res.status(200).json({ message:'Book is updated successfully'})
+  })
+}

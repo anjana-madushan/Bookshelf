@@ -1,7 +1,10 @@
 import React from 'react'; 
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 const Books = ({ books, handleDelete }) => {
+
+  const navigate = useNavigate();
+
   return (
     <div>
       {books.length > 0 ? (
@@ -11,7 +14,7 @@ const Books = ({ books, handleDelete }) => {
                 <img src={book.coverPic} alt='' />
                 <h1>{book.title}</h1>
                 <h1>{book.description}</h1>
-                <button>Update</button>
+                <button onClick={()=>navigate(`/${book.id}`)}>Update</button>
                 <button onClick={()=>handleDelete(book.id)}>Delete</button>
               </div>
             ))
