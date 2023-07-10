@@ -21,9 +21,18 @@ const Home = () => {
     fetchBooks();
   }, [])
 
+  const handleDelete = async(id) => {
+    try{
+      await axios.delete(`http://localhost:5000/books/delete/${id}`)
+      setBooks((prevBooks)=>prevBooks.filter((book)=>book.id !== id))
+    }catch(err){
+      console.log(err)
+    }
+  }
+
 
   return (
-    <div><Books books={books}/></div>
+    <div><Books books={books} handleDelete={handleDelete}/></div>
   )
 }
 

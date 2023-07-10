@@ -31,3 +31,16 @@ export const addBooks = (req, res) => {
   })
 
 }
+
+export const deleteBook = (req, res) =>{
+  const bookId = req.params.id;
+
+  //sql query for delete a book
+  const q = 'DELETE FROM book WHERE id = ?'
+
+  db.query(q, [bookId], (err, data)=>{
+    if(err) return res.json(err);
+
+    return res.status(200).json({ message:'Book is deleted successfully'})
+  })
+}

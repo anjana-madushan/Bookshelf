@@ -1,7 +1,7 @@
 import React from 'react'; 
 import {Link} from 'react-router-dom'
 
-const Books = ({ books }) => {
+const Books = ({ books, handleDelete }) => {
   return (
     <div>
       {books.length > 0 ? (
@@ -12,7 +12,7 @@ const Books = ({ books }) => {
                 <h1>{book.title}</h1>
                 <h1>{book.description}</h1>
                 <button>Update</button>
-                <button>Delete</button>
+                <button onClick={()=>handleDelete(book.id)}>Delete</button>
               </div>
             ))
       ) : (<p>There are not any books here!</p>)}
